@@ -11,6 +11,9 @@ public class Ball {
         }
         this.number = number;
     }
+    public int getNumber(){
+        return number;
+    }
 
     private boolean isValid(int number) {
         return number < MIN_NUMBER || number > MAX_NUMBER;
