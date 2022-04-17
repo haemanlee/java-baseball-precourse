@@ -22,17 +22,13 @@ public class PlayResult {
     public String playScore() {
         sb = new StringBuilder();
         if(this.ball > 0){
-            sb.append(this.ball+"볼");
+            sb.append(this.ball + "볼");
         }
         if(this.strike > 0){
-            if(sb.length() != 0){
-                sb.append(" ");
-            }
-            sb.append(this.strike+"스트라이크");
+            if(sb.length() != 0) sb.append(" ");
+            sb.append(this.strike + "스트라이크");
         }
-        if(sb.length() == 0){
-            sb.append("낫싱");
-        }
+        if(sb.length() == 0) sb.append("낫싱");
         return String.valueOf(sb);
     }
 }

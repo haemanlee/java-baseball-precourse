@@ -6,7 +6,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Validate {
-
     public static boolean isEqualsToThreeLength(String inputNumbers){
         if( !isValidSize(inputNumbers) ){
             throw new IllegalArgumentException("입력되는 값이 3자리 이어야 합니다.");
@@ -17,7 +16,6 @@ public class Validate {
     private static boolean isValidSize(String inputNumbers) {
         return inputNumbers.length() == Message.BALL_COUNT;
     }
-
 
     public static boolean isNotExistDuplicate(String inputNumbers) {
         if( isDuplicate(inputNumbers) ){
