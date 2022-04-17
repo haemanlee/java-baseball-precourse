@@ -1,8 +1,9 @@
 package baseball.model;
 
+import baseball.constant.Message;
+
 public class Ball {
-    private static final int MAX_NUMBER = 9;
-    private static final int MIN_NUMBER = 1;
+
     private final int position;
     private final int number;
 
@@ -23,7 +24,7 @@ public class Ball {
     }
 
     private boolean isValid(int number) {
-        return number < MIN_NUMBER || number > MAX_NUMBER;
+        return number < Message.MIN_NUMBER || number > Message.MAX_NUMBER;
     }
 
     public Status play(Ball ball) {

@@ -1,12 +1,12 @@
 package baseball.view;
 
+import baseball.constant.Message;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class InputView {
-    private static final int BALL_COUNT = 3;
     private static String inputNumbers;
 
     public static List<Integer> getBalls() {
@@ -22,12 +22,12 @@ public class InputView {
     }
 
     public static void inputNumbers() {
-        System.out.print("숫자를 입력해주세요 : ");
+        System.out.print(Message.ASK_NUMBER);
         inputNumbers = Console.readLine();
     }
 
     private static boolean isValid(String inputNumbers) {
-        return inputNumbers.length() != BALL_COUNT;
+        return inputNumbers.length() != Message.BALL_COUNT;
     }
 
 }
