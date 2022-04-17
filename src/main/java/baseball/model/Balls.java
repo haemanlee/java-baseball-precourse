@@ -6,12 +6,18 @@ import java.util.List;
 
 public class Balls {
 
-    private final List<Ball> balls = new ArrayList<>();
+    private final List<Ball> balls;
 
     public Balls(List<Integer> inputNumbers) {
-        for (int i = 0; i < inputNumbers.size(); i++) {
-            balls.add(new Ball(i+1, inputNumbers.get(i)));
+        this.balls = mapBall(inputNumbers);
+    }
+
+    private static List<Ball> mapBall(List<Integer> answers) {
+        List<Ball> balls = new ArrayList<>();
+        for (int i = 0; i < answers.size(); i++) {
+            balls.add(new Ball(i+1, answers.get(i)));
         }
+        return balls;
     }
 
     public List<Ball> getBalls() {
@@ -29,10 +35,12 @@ public class Balls {
     }
 
     Status play(Ball ball) {
-        return balls.stream()
-                .map(answer -> answer.play(ball))
-                .filter(Status::isNotNothing)
-                .findFirst()
-                .orElse(Status.Nothing);
+        for (Ball answer : balls) {
+            Status play = answer.play(ball);
+            if (play.isNotNothing()) {
+                return play;
+            }
+        }
+        return Status.Nothing;
     }
 }

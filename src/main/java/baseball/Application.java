@@ -1,18 +1,16 @@
 package baseball;
 
-import baseball.model.Balls;
-import baseball.view.InputView;
-import camp.nextstep.edu.missionutils.Randoms;
 
-import java.util.Arrays;
-import java.util.List;
+import baseball.service.PlayBaseballGame;
 
 public class Application {
     public static void main(String[] args) {
         // TODO: 프로그램 구현
+        PlayBaseballGame playBaseballGame;
 
-        Balls computer = new Balls(Randoms.pickUniqueNumbersInRange(1,9,3));
-
-        Balls balls = new Balls(InputView.getBalls(InputView.getInput()));
+        do {
+            playBaseballGame = new PlayBaseballGame();
+            playBaseballGame.play();
+        } while (playBaseballGame.isContinue());
     }
 }
