@@ -11,7 +11,6 @@ public class InputView {
     private static String inputNumbers;
 
     public static List<Integer> getBalls() {
-
         String[] numbers = inputNumbers.split("");
         List<Integer> result = new ArrayList<>();
         for (int i = 0; i < numbers.length; i++) {
@@ -25,11 +24,9 @@ public class InputView {
 
     public static void inputNumbers() {
         System.out.print(Message.ASK_NUMBER);
-        if(Validate.isEqualsToThreeLength(inputNumbers) || Validate.isNotExistDuplicate(inputNumbers) ){
-            inputNumbers = Console.readLine();
+        String inputText = Console.readLine();
+        if(Validate.isEqualsToThreeLength(inputText) && Validate.isNotExistDuplicate(inputText) ){
+            inputNumbers = inputText;
         }
     }
-
-
-
 }
